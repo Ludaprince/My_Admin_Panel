@@ -1,0 +1,28 @@
+^C:\USERS\USER\DESKTOP\E_COM_START_CODE\CLIENT_SIDE\ADMIN_PANAL_STARTUP\BUILD\WINDOWS\X64\CMAKEFILES\E04F9745A1A8294D46BB146009A53129\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\Users\user\Desktop\flutter PROJECT_DIR=C:\Users\user\Desktop\e_com_start_code\client_side\admin_panal_startup FLUTTER_ROOT=C:\Users\user\Desktop\flutter FLUTTER_EPHEMERAL_DIR=C:\Users\user\Desktop\e_com_start_code\client_side\admin_panal_startup\windows\flutter\ephemeral PROJECT_DIR=C:\Users\user\Desktop\e_com_start_code\client_side\admin_panal_startup FLUTTER_TARGET=C:\Users\user\Desktop\e_com_start_code\client_side\admin_panal_startup\lib\main.dart DART_DEFINES=RkxVVFRFUl9XRUJfQ0FOVkFTS0lUX1VSTD1odHRwczovL3d3dy5nc3RhdGljLmNvbS9mbHV0dGVyLWNhbnZhc2tpdC8yOTllODUyY2I5MmYyN2MxNmM5YmVlOThjNGZmM2E1ZGM1YjRkZmFlLw== DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=C:\Users\user\Desktop\e_com_start_code\client_side\admin_panal_startup\.dart_tool\package_config.json C:/Users/user/Desktop/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\USER\DESKTOP\E_COM_START_CODE\CLIENT_SIDE\ADMIN_PANAL_STARTUP\BUILD\WINDOWS\X64\CMAKEFILES\0F5C8B1186E525B9662B0C02CB142B79\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\USER\DESKTOP\E_COM_START_CODE\CLIENT_SIDE\ADMIN_PANAL_STARTUP\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/user/Desktop/e_com_start_code/client_side/admin_panal_startup/windows -BC:/Users/user/Desktop/e_com_start_code/client_side/admin_panal_startup/build/windows/x64 --check-stamp-file C:/Users/user/Desktop/e_com_start_code/client_side/admin_panal_startup/build/windows/x64/flutter/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
