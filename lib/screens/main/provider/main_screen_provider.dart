@@ -9,8 +9,6 @@ import '../../variants/variants_screen.dart';
 import '../../variants_type/variants_type_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import '../../sub_category/sub_category_screen.dart';
 
 class MainScreenProvider extends ChangeNotifier{

@@ -29,6 +29,8 @@ class SubCategory {
     data['updatedAt'] = this.updatedAt;
     return data;
   }
+
+  toList() {}
 }
 
 class CategoryId {

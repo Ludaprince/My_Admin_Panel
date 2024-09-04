@@ -12,6 +12,5 @@ class AppPages {
       fullscreenDialog: true,
       page: () => MainScreen()
     ),
-
   ];
 }

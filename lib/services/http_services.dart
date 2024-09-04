@@ -3,43 +3,111 @@ import 'package:get/get_connect.dart';
 import 'package:get/get.dart';
 import '../utility/constants.dart';
 
-class HttpService  {
+class HttpService {
   final String baseUrl = MAIN_URL;
+
+  // Define a timeout duration (e.g., 10 seconds)
+  final Duration timeoutDuration = Duration(seconds: 10);
 
   Future<Response> getItems({required String endpointUrl}) async {
     try {
-      return await GetConnect().get('$baseUrl/$endpointUrl');
+      print('GET request: $baseUrl/$endpointUrl');
+      return await GetConnect()
+          .get('$baseUrl/$endpointUrl')
+          .timeout(timeoutDuration);
     } catch (e) {
-      return Response(body: json.encode({'error': e.toString()}), statusCode: 500);
+      print('Error during GET request: $e');
+      return Response(
+          body: json.encode({'error': e.toString()}), statusCode: 500);
     }
   }
 
-
-  Future<Response> addItem({required String endpointUrl, required dynamic itemData}) async {
+  Future<Response> addItem(
+      {required String endpointUrl, required dynamic itemData}) async {
     try {
-      final response = await GetConnect().post('$baseUrl/$endpointUrl',itemData);
-      print(response.body);
+      print('POST request: $baseUrl/$endpointUrl');
+      final response = await GetConnect()
+          .post('$baseUrl/$endpointUrl', itemData)
+          .timeout(timeoutDuration);
+      print('Response: ${response.body}');
       return response;
     } catch (e) {
-      print('Error: $e');
-      return Response(body: json.encode({'message': e.toString()}), statusCode: 500);
+      print('Error during POST request: $e');
+      return Response(
+          body: json.encode({'message': e.toString()}), statusCode: 500);
     }
   }
 
-
-  Future<Response> updateItem({required String endpointUrl, required String itemId, required dynamic itemData}) async {
+  Future<Response> updateItem(
+      {required String endpointUrl,
+      required String itemId,
+      required dynamic itemData}) async {
     try {
-      return await GetConnect().put('$baseUrl/$endpointUrl/$itemId', itemData);
+      print('PUT request: $baseUrl/$endpointUrl/$itemId');
+      return await GetConnect()
+          .put('$baseUrl/$endpointUrl/$itemId', itemData)
+          .timeout(timeoutDuration);
     } catch (e) {
-      return Response(body: json.encode({'message': e.toString()}), statusCode: 500);
+      print('Error during PUT request: $e');
+      return Response(
+          body: json.encode({'message': e.toString()}), statusCode: 500);
     }
   }
 
-  Future<Response> deleteItem({required String endpointUrl, required String itemId}) async {
+  Future<Response> deleteItem(
+      {required String endpointUrl, required String itemId}) async {
     try {
-      return await GetConnect().delete('$baseUrl/$endpointUrl/$itemId');
+      print('DELETE request: $baseUrl/$endpointUrl/$itemId');
+      return await GetConnect()
+          .delete('$baseUrl/$endpointUrl/$itemId')
+          .timeout(timeoutDuration);
     } catch (e) {
-      return Response(body: json.encode({'message': e.toString()}), statusCode: 500);
+      print('Error during DELETE request: $e');
+      return Response(
+          body: json.encode({'message': e.toString()}), statusCode: 500);
     }
   }
 }
+
+
+
+// class HttpService  {
+//   final String baseUrl = MAIN_URL;
+
+//   Future<Response> getItems({required String endpointUrl}) async {
+//     try {
+//       return await GetConnect().get('$baseUrl/$endpointUrl');
+//     } catch (e) {
+//       return Response(body: json.encode({'error': e.toString()}), statusCode: 500);
+//     }
+//   }
+
+
+//   Future<Response> addItem({required String endpointUrl, required dynamic itemData}) async {
+//     try {
+//       final response = await GetConnect().post('$baseUrl/$endpointUrl',itemData);
+//       print(response.body);
+//       return response;
+//     } catch (e) {
+//       print('Error: $e');
+//       return Response(body: json.encode({'message': e.toString()}), statusCode: 500);
+//     }
+//   }
+
+
+//   Future<Response> updateItem({required String endpointUrl, required String itemId, required dynamic itemData}) async {
+//     try {
+//       return await GetConnect().put('$baseUrl/$endpointUrl/$itemId', itemData);
+//     } catch (e) {
+//       return Response(body: json.encode({'message': e.toString()}), statusCode: 500);
+//     }
+//   }
+
+//   Future<Response> deleteItem({required String endpointUrl, required String itemId}) async {
+//     try {
+//       return await GetConnect().delete('$baseUrl/$endpointUrl/$itemId');
+//     } catch (e) {
+//       return Response(body: json.encode({'message': e.toString()}), statusCode: 500);
+//     }
+//   }
+// }

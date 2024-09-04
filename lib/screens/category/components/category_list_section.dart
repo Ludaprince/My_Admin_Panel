@@ -1,3 +1,5 @@
+import 'package:admin/utility/extensions.dart';
+
 import '../../../core/data/data_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -48,11 +50,12 @@ class CategoryListSection extends StatelessWidget {
                   ],
                   rows: List.generate(
                     dataProvider.categories.length,
-                    (index) => categoryDataRow(dataProvider.categories[index], delete: () {
-                      //TODO: should complete call  deleteCategory
+                    (index) => categoryDataRow(dataProvider.categories[index],
+                        delete: () {
+                          context.categoryProvider.deleteCategory(dataProvider.categories[index]);
                     }, edit: () {
                       showAddCategoryForm(context, dataProvider.categories[index]);
-                    }),
+                    },),
                   ),
                 );
               },
@@ -74,7 +77,8 @@ DataRow categoryDataRow(Category CatInfo, {Function? edit, Function? delete}) {
               CatInfo.image ?? '',
               height: 30,
               width: 30,
-              errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+              errorBuilder: (BuildContext context, Object exception,
+                  StackTrace? stackTrace) {
                 return Icon(Icons.error);
               },
             ),
@@ -86,22 +90,28 @@ DataRow categoryDataRow(Category CatInfo, {Function? edit, Function? delete}) {
         ),
       ),
       DataCell(Text(CatInfo.createdAt ?? '')),
-      DataCell(IconButton(
+      DataCell(
+        IconButton(
           onPressed: () {
             if (edit != null) edit();
           },
           icon: Icon(
             Icons.edit,
             color: Colors.white,
-          ))),
-      DataCell(IconButton(
+          ),
+        ),
+      ),
+      DataCell(
+        IconButton(
           onPressed: () {
             if (delete != null) delete();
           },
           icon: Icon(
             Icons.delete,
             color: Colors.red,
-          ))),
+          ),
+        ),
+      ),
     ],
   );
 }
